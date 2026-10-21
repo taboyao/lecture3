@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>聖誕微醺圖鑑｜講座報名</title>
+  <meta property="og:title" content="聖誕微醺圖鑑：從聖誕傳說解密到熱紅酒香料巡禮">
+  <meta property="og:description" content="神奇海獅 × 食色香料研究所 FiFi｜2026/11/28（六）14:00–17:00｜禾禾文化空間白盒子">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Noto+Serif+TC:wght@300;400;500;700&family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --black:    #0E0B0B;
+      --off-black: #1A1410;
+      --deep:     #120D0A;
+      --gold:     #C8962A;
+      --gold-lt:  #E8C46A;
+      --gold-dk:  #8B6410;
+      --cream:    #F0E8D8;
+      --wine:     #7B1F2E;
+      --wine-lt:  #A83248;
+      --muted:    #7A6A52;
+      --border:   #3A2E20;
+      --border-lt: #5A4A30;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--cream);
+      font-family: 'Noto Serif TC', serif;
+      font-weight: 300;
+      line-height: 1.8;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.03;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 4rem 1.5rem 3rem;
+      position: relative;
+      background: var(--black);
+      border-bottom: 1px solid var(--border);
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 50% 30%, rgba(200,150,42,0.06) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 60% at 20% 80%, rgba(123,31,46,0.08) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .hero-content { position: relative; z-index: 1; width: 100%; }
+
+    .hero-eyebrow {
+      font-family: 'Noto Sans TC', sans-serif;
+      font-size: clamp(0.7rem, 1.8vw, 0.85rem);
+      letter-spacing: 0.3em;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.1s ease forwards;
+    }
+
+    .hero-title {
+      font-family: 'Noto Serif TC', serif;
+      font-weight: 900;
+      font-size: clamp(2.8rem, 9vw, 6rem);
+      line-height: 1.1;
+      color: var(--cream);
+      max-width: 800px;
+      margin: 0 auto 0.8rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.2s ease forwards;
+      letter-spacing: 0.02em;
+    }
+
+    .hero-subtitle {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: clamp(1rem, 2.5vw, 1.3rem);
+      color: var(--gold-lt);
+      max-width: 560px;
+      margin: 0 auto 2rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.3s ease forwards;
+      line-height: 1.7;
+    }
+
+    .hero-collab {
+      font-size: 0.82rem;
+      color: var(--muted);
+      letter-spacing: 0.15em;
+      margin-bottom: 2rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.35s ease forwards;
+    }
+    .hero-collab span { color: var(--gold); }
+
+    .cta-btn {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--black);
+      font-family: 'Noto Serif TC', serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 0.15em;
+      padding: 0.9rem 2.8rem;
+      text-decoration: none;
+      border: 2px solid var(--gold);
+      transition: all 0.25s;
+      cursor: pointer;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.4s ease forwards;
+      margin-bottom: 2rem;
+    }
+    .cta-btn:hover { background: transparent; color: var(--gold); }
+
+    .scroll-hint {
+      font-size: 0.75rem;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+      opacity: 0;
+      animation: fadeUp 1s 1.2s ease forwards;
+      margin-bottom: 2rem;
+    }
+
+    .hero-meta {
+      display: flex;
+      gap: 0;
+      justify-content: center;
+      flex-wrap: wrap;
+      border: 1px solid var(--border);
+      opacity: 0;
+      animation: fadeUp 0.8s 0.5s ease forwards;
+      max-width: 700px;
+      margin: 0 auto 2rem;
+    }
+    .hero-meta-item {
+      padding: 1rem 1.8rem;
+      border-right: 1px solid var(--border);
+      text-align: center;
+    }
+    .hero-meta-item:last-child { border-right: none; }
+    .hero-meta-item .lbl {
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      font-family: 'Noto Sans TC', sans-serif;
+      margin-bottom: 0.3rem;
+    }
+    .hero-meta-item .val {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      color: var(--cream);
+    }
+
+    /* ── ORNAMENT DIVIDER ── */
+    .ornament-divider {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 0;
+      padding: 0.8rem 1.5rem;
+      background: var(--off-black);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .ornament-divider::before,
+    .ornament-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold-dk), transparent);
+    }
+    .ornament-divider span {
+      color: var(--gold);
+      font-size: 0.8rem;
+      letter-spacing: 0.2em;
+      font-family: 'Noto Sans TC', sans-serif;
+      white-space: nowrap;
+    }
+
+    /* ── SECTIONS ── */
+    section {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 5rem 1.5rem;
+    }
+
+    .section-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.25em;
+      color: var(--gold);
+      text-transform: uppercase;
+      font-family: 'Noto Sans TC', sans-serif;
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-family: 'Noto Serif TC', serif;
+      font-weight: 700;
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      line-height: 1.3;
+      margin-bottom: 2rem;
+      color: var(--cream);
+    }
+
+    .full-divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 0;
+    }
+
+    .about-text {
+      font-size: 1rem;
+      line-height: 2;
+      color: #C8B898;
+    }
+    .about-text p + p { margin-top: 1.2rem; }
+    .about-text strong { color: var(--cream); font-weight: 700; }
+
+    .pullquote {
+      border-left: 3px solid var(--gold);
+      padding: 1.2rem 1.5rem;
+      margin: 2.5rem 0;
+      background: var(--off-black);
+    }
+    .pullquote p {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--gold-lt);
+    }
+
+    /* ── CANDLES ── */
+    .candles { margin-top: 2rem; }
+    .candle-item {
+      display: flex;
+      gap: 1.5rem;
+      padding: 1.8rem 0;
+      border-bottom: 1px solid var(--border);
+      align-items: flex-start;
+    }
+    .candle-item:last-child { border-bottom: none; }
+    .candle-icon {
+      font-size: 1.8rem;
+      flex-shrink: 0;
+      width: 2.5rem;
+      text-align: center;
+      line-height: 1;
+      margin-top: 0.2rem;
+    }
+    .candle-content h3 {
+      font-family: 'Noto Serif TC', serif;
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--gold-lt);
+      margin-bottom: 0.3rem;
+    }
+    .candle-era {
+      font-size: 0.72rem;
+      color: var(--gold-dk);
+      letter-spacing: 0.15em;
+      font-family: 'Noto Sans TC', sans-serif;
+      margin-bottom: 0.5rem;
+    }
+    .candle-content p {
+      font-size: 0.9rem;
+      color: #A89878;
+      line-height: 1.9;
+    }
+
+    /* ── TASTING ── */
+    .tasting-box {
+      background: var(--off-black);
+      border: 1px solid var(--border);
+      padding: 2rem;
+      margin-top: 2rem;
+      text-align: center;
+    }
+    .tasting-box .icon { font-size: 2.5rem; margin-bottom: 1rem; }
+    .tasting-box h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      color: var(--gold-lt);
+      margin-bottom: 0.8rem;
+    }
+    .tasting-box p { font-size: 0.9rem; color: #A89878; line-height: 1.9; }
+
+    /* ── SPEAKERS ── */
+    .speaker-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    @media (max-width: 580px) { .speaker-grid { grid-template-columns: 1fr; } }
+
+    .speaker-card {
+      background: var(--off-black);
+      border: 1px solid var(--border);
+      padding: 1.5rem;
+    }
+    .speaker-card img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      border: 2px solid var(--gold);
+      display: block;
+      margin-bottom: 1rem;
+    }
+    .speaker-card .speaker-placeholder {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: var(--border);
+      border: 2px solid var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .speaker-card h3 {
+      font-family: 'Noto Serif TC', serif;
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--cream);
+      margin-bottom: 0.2rem;
+    }
+    .speaker-card .role {
+      font-size: 0.72rem;
+      color: var(--gold);
+      letter-spacing: 0.1em;
+      font-family: 'Noto Sans TC', sans-serif;
+      margin-bottom: 0.8rem;
+    }
+    .speaker-card p {
+      font-size: 0.85rem;
+      color: #A89878;
+      line-height: 1.8;
+    }
+    .speaker-link {
+      display: inline-block;
+      margin-top: 0.8rem;
+      font-size: 0.75rem;
+      color: var(--gold);
+      text-decoration: none;
+      border-bottom: 1px solid var(--gold-dk);
+      padding-bottom: 1px;
+    }
+    .speaker-link:hover { color: var(--gold-lt); }
+
+    /* ── INFO ── */
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      border: 1px solid var(--border);
+      margin-top: 2rem;
+    }
+    .info-item {
+      padding: 1.4rem 1.5rem;
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .info-item:last-child { border-right: none; }
+    .info-item .lbl {
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      text-transform: uppercase;
+      font-family: 'Noto Sans TC', sans-serif;
+      margin-bottom: 0.4rem;
+    }
+    .info-item .val {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.95rem;
+      color: var(--cream);
+      line-height: 1.5;
+    }
+
+    /* ── FORM ── */
+    .form-wrap {
+      background: var(--off-black);
+      border: 1px solid var(--border);
+      padding: 2.5rem;
+      margin-top: 2rem;
+    }
+
+    .form-notice {
+      font-size: 0.82rem;
+      color: #A89878;
+      line-height: 1.8;
+      margin-bottom: 2rem;
+      padding: 1rem;
+      border: 1px solid var(--border);
+      background: var(--black);
+    }
+    .form-notice strong { color: var(--gold); }
+
+    .bank-info {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .bank-item {
+      background: var(--black);
+      border: 1px solid var(--border);
+      padding: 0.6rem 0.8rem;
+    }
+    .bank-item .k { color: var(--muted); font-size: 0.7rem; display: block; letter-spacing: 0.1em; }
+    .bank-item .v { font-family: 'Playfair Display', serif; font-size: 0.95rem; color: var(--cream); }
+
+    .form-section-title {
+      font-family: 'Noto Serif TC', serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--gold-lt);
+      margin: 1.8rem 0 0.8rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.4rem;
+    }
+
+    .field-group { margin-bottom: 1.2rem; }
+    .field-group label {
+      display: block;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      font-family: 'Noto Sans TC', sans-serif;
+      margin-bottom: 0.4rem;
+    }
+    .field-group label .req { color: var(--wine-lt); margin-left: 2px; }
+    .field-group input,
+    .field-group textarea {
+      width: 100%;
+      background: var(--black);
+      border: 1px solid var(--border);
+      padding: 0.75rem 1rem;
+      font-family: 'Noto Serif TC', serif;
+      font-size: 0.92rem;
+      color: var(--cream);
+      outline: none;
+      transition: border-color 0.2s;
+      -webkit-appearance: none;
+    }
+    .field-group input:focus,
+    .field-group textarea:focus { border-color: var(--gold); }
+    .field-group textarea { resize: vertical; min-height: 70px; }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    @media (max-width: 500px) { .form-row { grid-template-columns: 1fr; } }
+
+    .error-msg { color: var(--wine-lt); font-size: 0.82rem; margin-bottom: 1rem; display: none; }
+
+    .submit-btn {
+      width: 100%;
+      background: var(--gold);
+      color: var(--black);
+      border: 2px solid var(--gold);
+      padding: 1rem;
+      font-family: 'Noto Serif TC', serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 0.15em;
+      cursor: pointer;
+      transition: all 0.25s;
+      margin-top: 0.5rem;
+    }
+    .submit-btn:hover { background: transparent; color: var(--gold); }
+    .submit-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    .success-box {
+      text-align: center;
+      padding: 3rem 1rem;
+      display: none;
+    }
+    .success-box .big {
+      font-size: 3rem;
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+    .success-box h3 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      color: var(--gold-lt);
+    }
+    .success-box p { color: #A89878; font-size: 0.9rem; line-height: 1.9; }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 3rem 1.5rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.8rem;
+      color: var(--muted);
+      line-height: 2;
+      background: var(--off-black);
+    }
+    footer .footer-title {
+      font-family: 'Noto Serif TC', serif;
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--gold-lt);
+      margin-bottom: 0.5rem;
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    .copy-btn {
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.7rem;
+      padding: 2px 8px;
+      cursor: pointer;
+      margin-left: 6px;
+      transition: all 0.15s;
+      font-family: 'Noto Sans TC', sans-serif;
+      vertical-align: middle;
+    }
+    .copy-btn:hover { border-color: var(--gold); color: var(--gold); }
+
+    /* ── MOBILE ── */
+    @media (max-width: 600px) {
+      section { padding: 3rem 1.2rem; }
+      .hero-meta { flex-direction: column; border: none; gap: 0; max-width: 100%; }
+      .hero-meta-item { border-right: none; border-bottom: 1px solid var(--border); width: 100%; }
+      .form-wrap { padding: 1.5rem; }
+      .bank-info { grid-template-columns: 1fr; }
+      .info-grid { grid-template-columns: 1fr 1fr; }
+      .info-item { border-right: none; }
+    }
+
+    @media (max-width: 390px) {
+      .hero { padding: 3rem 1rem; }
+      .hero-title { font-size: 2.4rem; }
+      .hero-subtitle { font-size: 0.9rem; }
+      .section-title { font-size: 1.5rem; }
+      .candle-item { gap: 1rem; }
+      .candle-icon { font-size: 1.4rem; width: 2rem; }
+      .info-grid { grid-template-columns: 1fr; }
+      .form-wrap { padding: 1rem; }
+      .submit-btn { font-size: 0.88rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── HERO ── -->
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">漢薩文化 × 神奇海獅 × 食色香料研究所 · 2026</div>
+    <h1 class="hero-title">聖誕微醺圖鑑</h1>
+    <p class="hero-subtitle">從聖誕傳說解密到熱紅酒香料巡禮</p>
+    <div class="hero-collab">
+      <span>神奇海獅</span> &nbsp;✦&nbsp; <span>食色香料研究所 FiFi</span>
+    </div>
+    <a href="#register" class="cta-btn">立即報名</a>
+    <div class="scroll-hint">↓ 繼續閱讀</div>
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <div class="lbl">日期</div>
+        <div class="val">2026/11/28（六）</div>
+      </div>
+      <div class="hero-meta-item">
+        <div class="lbl">時間</div>
+        <div class="val">14:00–17:00</div>
+      </div>
+      <div class="hero-meta-item">
+        <div class="lbl">地點</div>
+        <div class="val">禾禾文化空間</div>
+      </div>
+      <div class="hero-meta-item">
+        <div class="lbl">名額</div>
+        <div class="val">限37人</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="ornament-divider"><span>✦ 聖誕節，不只是打卡和交換禮物 ✦</span></div>
+
+<!-- ── ABOUT ── -->
+<section class="reveal">
+  <div class="section-label">緣起 · About</div>
+  <h2 class="section-title">台灣找不到道地的聖誕節</h2>
+  <div class="about-text">
+    <p>台灣的聖誕節，是網美打卡、耶誕城演唱會、交換禮物。</p>
+    <p>歐洲的聖誕節，是降臨蠟燭、降臨日曆、聖誕市集、平安夜的寧靜。</p>
+    <p>這兩者之間的距離，不只是地理上的差距，而是<strong>兩千年歷史與文化的積累</strong>。</p>
+    <p>這場講座，我們要一起把這段歷史解開——從一神教的起源、維京人入侵、黑死病浩劫，到資本主義如何重塑了聖誕節的樣貌。然後，帶著這些故事，一起舉起一杯熱紅酒。</p>
+  </div>
+
+  <div class="pullquote">
+    <p>聖誕花圈下可以接吻？<br>
+    聖誕樹上的紅色彩球是禁果？<br>
+    聖誕老人一開始是聖誕惡靈？</p>
+  </div>
+</section>
+
+<hr class="full-divider">
+
+<!-- ── CANDLES ── -->
+<section class="reveal">
+  <div class="section-label">講座大綱 · Content</div>
+  <h2 class="section-title">四支蠟燭，依序點燃</h2>
+  <p style="font-size:0.9rem;color:#A89878;margin-bottom:1rem;">呼應歐洲聖誕節的降臨蠟燭傳統，這場講座以四個歷史階段展開。</p>
+
+  <div class="candles">
+    <div class="candle-item">
+      <div class="candle-icon">🕯️</div>
+      <div class="candle-content">
+        <div class="candle-era">第一支蠟燭 · 西元 1–4 世紀</div>
+        <h3>緣起</h3>
+        <p>一神教的起源、基督教早期的迫害（羅馬大火、戴克里先大迫害）、君士坦丁皇帝的傳說與米蘭敕令、聖誕節為何選在12月25日——羅馬太陽神節的秘密。</p>
+      </div>
+    </div>
+    <div class="candle-item">
+      <div class="candle-icon">🕯️</div>
+      <div class="candle-content">
+        <div class="candle-era">第二支蠟燭 · 西元 5–13 世紀</div>
+        <h3>擴張</h3>
+        <p>查理曼加冕、維京人入侵、十字軍東征。以及那些你不知道的異教元素——聖誕花圈與槲寄生的希臘神話由來、聖誕樹的日耳曼常綠樹崇拜起源。</p>
+      </div>
+    </div>
+    <div class="candle-item">
+      <div class="candle-icon">🕯️</div>
+      <div class="candle-content">
+        <div class="candle-era">第三支蠟燭 · 西元 14–16 世紀</div>
+        <h3>挑戰</h3>
+        <p>魔鬼形象的演變、黑死病浩劫、聖誕惡靈的民間傳說；宗教改革的馬丁路德如何為聖誕節「發明」了兩樣東西——把聖誕樹搬回家，以及創造送禮物的聖誕小精靈。</p>
+      </div>
+    </div>
+    <div class="candle-item">
+      <div class="candle-icon">🕯️</div>
+      <div class="candle-content">
+        <div class="candle-era">第四支蠟燭 · 14 世紀至今</div>
+        <h3>共存</h3>
+        <p>聖誕市集的起源、中世紀飲食文化、蝴蝶餅與聖誕蛋糕的由來。以及那個家喻戶曉的故事——聖誕老人的紅色外套，其實是可口可樂廣告創造的。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="full-divider">
+
+<!-- ── TASTING ── -->
+<section class="reveal">
+  <div class="section-label">品鑑環節 · Tasting</div>
+  <h2 class="section-title">熱紅酒香料巡禮</h2>
+  <div class="tasting-box">
+    <div class="icon">🍷</div>
+    <h3>演講後 · 香料品鑑與試飲</h3>
+    <p>由食色香料研究所所長 FiFi 帶領，從香料的產地故事出發，認識熱紅酒中每一種香料的個性與層次。<br><br>
+    現場提供<strong style="color:var(--gold-lt);">酒精版</strong>與<strong style="color:var(--gold-lt);">無酒精版</strong>熱紅酒試飲，<br>
+    並附上無調味蘇打餅乾作為味覺轉換。</p>
+  </div>
+</section>
+
+<hr class="full-divider">
+
+<!-- ── SPEAKERS ── -->
+<section class="reveal">
+  <div class="section-label">講者 · Speakers</div>
+  <h2 class="section-title">今晚的說書人</h2>
+  <div class="speaker-grid">
+    <div class="speaker-card">
+      <img src="Lee_004.png" alt="神奇海獅">
+      <h3>神奇海獅</h3>
+      <div class="role">歷史說書人</div>
+      <p>畢業於德國漢堡大學歷史碩士，往研究之路狂奔十年之後，發覺志向是天橋底下的說書人，致力把歷史寫成水果日報和數字周刊！</p>
+      <a href="https://www.instagram.com/mrmagicsealion/" target="_blank" class="speaker-link">Instagram →</a>
+    </div>
+    <div class="speaker-card">
+      <div class="speaker-placeholder">🌿</div>
+      <h3>FiFi Yang</h3>
+      <div class="role">食色香料研究所 創辦人暨所長</div>
+      <p>曾從事國際貿易，足跡遍及中東、印度、非洲等香料產地，因而愛上香料與世界飲食文化，回台後創立食色天然香料研究所，主打無防腐劑、無人工添加物的天然香料品牌。</p>
+      <a href="https://shise.com.tw/about/" target="_blank" class="speaker-link">食色香料研究所 →</a>
+    </div>
+  </div>
+</section>
+
+<hr class="full-divider">
+
+<!-- ── INFO ── -->
+<section class="reveal" id="info">
+  <div class="section-label">講座資訊 · Info</div>
+  <h2 class="section-title">活動詳情</h2>
+  <div class="info-grid">
+    <div class="info-item">
+      <div class="lbl">日期</div>
+      <div class="val">2026年11月28日（六）</div>
+    </div>
+    <div class="info-item">
+      <div class="lbl">時間</div>
+      <div class="val">14:00 進場<br>14:30 開始<br>17:00 結束</div>
+    </div>
+    <div class="info-item">
+      <div class="lbl">地點</div>
+      <div class="val">禾禾文化空間<br>白盒子</div>
+    </div>
+    <div class="info-item">
+      <div class="lbl">費用</div>
+      <div class="val">NTD$800<br>／人（含試飲）</div>
+    </div>
+  </div>
+
+  <div style="margin-top:1.2rem; font-size:0.85rem; color:#A89878; line-height:2;">
+    📍 台北市中山區南京東路三段9號4樓<br>
+    🚇 捷運松江南京站，步行約10分鐘<br>
+    <a href="https://maps.google.com/?q=台北市中山區南京東路三段9號4樓" target="_blank" style="color:var(--gold);">Google 地圖導航 →</a>
+  </div>
+  <p style="font-size:0.82rem;color:#7A6A52;margin-top:1rem;">本活動採自由入座。現場提供熱紅酒酒精版與無酒精版試飲，附無調味蘇打餅乾。</p>
+  <p style="font-size:0.9rem;color:var(--gold);margin-top:0.5rem;">📚 現場開放簽書，歡迎攜帶神奇海獅著作前來！</p>
+</section>
+
+<hr class="full-divider">
+
+<!-- ── REGISTER ── -->
+<section id="register" class="reveal">
+  <div class="section-label">報名 · Register</div>
+  <h2 class="section-title">加入這場微醺之夜</h2>
+
+  <div class="form-wrap">
+    <div class="form-notice">
+      本活動採自由入座，請提早進場選位。<br>
+      報名前請先完成匯款，再填寫下方表單。<br>
+      <strong>匯款後請保留後五碼</strong>，填入表單以供核對。<br><br>
+      有任何問題請私訊海獅：
+      <a href="https://www.instagram.com/mrmagicsealion/" target="_blank" style="color:var(--gold);">Instagram</a> 或
+      <a href="https://www.facebook.com/magicsealion" target="_blank" style="color:var(--gold);">Facebook</a><br>
+      或來信：<a href="mailto:hanseculture@gmail.com" style="color:var(--gold);">hanseculture@gmail.com</a>
+    </div>
+
+    <div class="form-section-title">匯款資訊</div>
+    <div class="bank-info">
+      <div class="bank-item">
+        <span class="k">銀行</span>
+        <span class="v">永豐銀行（807）</span>
+      </div>
+      <div class="bank-item">
+        <span class="k">帳號</span>
+        <span class="v">125-018-0010331-5
+          <button class="copy-btn" onclick="copyAccount()">複製</button>
+        </span>
+      </div>
+      <div class="bank-item">
+        <span class="k">戶名</span>
+        <span class="v">漢薩文化創意有限公司</span>
+      </div>
+    </div>
+
+    <div id="form-area">
+      <div class="form-section-title">基本資料</div>
+
+      <div class="form-row">
+        <div class="field-group">
+          <label>姓名 <span class="req">*</span></label>
+          <input type="text" id="f-name" placeholder="真實姓名">
+        </div>
+        <div class="field-group">
+          <label>匯款後五碼 <span class="req">*</span></label>
+          <input type="text" id="f-transfer" placeholder="例：12345" maxlength="5">
+        </div>
+      </div>
+
+      <div class="field-group">
+        <label>聯絡 Email <span class="req">*</span></label>
+        <input type="email" id="f-email" placeholder="example@mail.com">
+      </div>
+
+      <div class="field-group">
+        <label>聯絡電話 <span class="req">*</span></label>
+        <input type="tel" id="f-phone" placeholder="0912-345-678">
+      </div>
+
+      <div class="form-section-title">收據資訊</div>
+      <div class="field-group">
+        <label>收據抬頭（留空則以報名姓名開立）</label>
+        <input type="text" id="f-receipt" placeholder="如需另開請填寫">
+      </div>
+
+      <div class="field-group">
+        <label>備註</label>
+        <textarea id="f-note" placeholder="其他需要告知的事項..."></textarea>
+      </div>
+
+      <div class="error-msg" id="form-error"></div>
+      <button class="submit-btn" onclick="submitForm()" id="submit-btn">確認報名 →</button>
+    </div>
+
+    <div class="success-box" id="success-box">
+      <div class="big">✦</div>
+      <h3>報名成功，感謝你！</h3>
+      <p id="success-detail"></p>
+      <p style="margin-top:0.8rem;">待款項及名單核對完成，將以 Email 寄發確認通知。<br>
+      有任何問題歡迎私訊海獅：<br>
+      <a href="https://www.instagram.com/mrmagicsealion/" target="_blank" style="color:var(--gold);">Instagram</a> ／
+      <a href="https://www.facebook.com/magicsealion" target="_blank" style="color:var(--gold);">Facebook</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-title">聖誕微醺圖鑑：從聖誕傳說解密到熱紅酒香料巡禮</div>
+  <div>2026.11.28（六）14:00–17:00 · 禾禾文化空間白盒子</div>
+  <div style="margin-top:1rem;font-size:0.72rem;opacity:0.5;">© 2026 · 神奇海獅 × 食色香料研究所 × 漢薩文化保留所有權利</div>
+</footer>
+
+<script>
+  function copyAccount() {
+    navigator.clipboard.writeText('12501800103315');
+    const btn = document.querySelector('.copy-btn');
+    btn.textContent = '已複製';
+    setTimeout(() => btn.textContent = '複製', 2000);
+  }
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  const SHEET_URL = 'https://script.google.com/macros/s/AKfycbwxo8acsG2LGqSGq2e2Tot4E_2bbK_3IdNtuCNfNritCwf4uoEq3ambizLqY9YDV0zK/exec';
+
+  async function submitForm() {
+    const name     = document.getElementById('f-name').value.trim();
+    const email    = document.getElementById('f-email').value.trim();
+    const phone    = document.getElementById('f-phone').value.trim();
+    const transfer = document.getElementById('f-transfer').value.trim();
+    const receipt  = document.getElementById('f-receipt').value.trim();
+    const note     = document.getElementById('f-note').value.trim();
+    const errEl    = document.getElementById('form-error');
+
+    if (!name || !email || !phone || !transfer) {
+      errEl.textContent = '請填寫所有必填欄位（姓名、Email、電話、匯款後五碼）。';
+      errEl.style.display = 'block'; return;
+    }
+    if (!/^\d{5}$/.test(transfer)) {
+      errEl.textContent = '匯款後五碼請填入 5 位數字。';
+      errEl.style.display = 'block'; return;
+    }
+    errEl.style.display = 'none';
+
+    const btn = document.getElementById('submit-btn');
+    btn.disabled = true;
+    btn.textContent = '提交中…';
+
+    const payload = {
+      name, email, phone, transfer,
+      receipt: receipt || name,
+      note,
+      timestamp: new Date().toLocaleString('zh-TW')
+    };
+
+    try {
+      await fetch(SHEET_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      document.getElementById('form-area').style.display = 'none';
+      const box = document.getElementById('success-box');
+      box.style.display = 'block';
+      document.getElementById('success-detail').textContent =
+        `${name}，感謝您的報名！`;
+    } catch(e) {
+      btn.disabled = false;
+      btn.textContent = '確認報名 →';
+      errEl.textContent = '提交失敗，請稍後再試或直接聯繫主辦方。';
+      errEl.style.display = 'block';
+    }
+  }
+</script>
+</body>
+</html>
